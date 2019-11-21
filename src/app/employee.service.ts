@@ -16,4 +16,10 @@ export class EmployeeService {
     this.messageService.add("EmployeeService: fetched employees");
     return of(EMPLOYEES);
   }
+
+  getEmployee(id: number): Observable<Employee> {
+    // TODO: send the message _after_ fetching the employee
+    this.messageService.add(`EmployeeService: fetched employee id=${id}`);
+    return of(EMPLOYEES.find(employee => employee.id === id));
+  }
 }
